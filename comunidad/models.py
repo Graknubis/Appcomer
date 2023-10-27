@@ -22,7 +22,7 @@ class Usuario(models.Model):
         TARJETA='TI',_("Tarjeta de Identidad")
         CEDULA_EXTRANJERIA='CE',_("Cédula de Extranjería")
     tipo_documento=models.CharField(max_length=2,choices=TipoDocumento.choices,verbose_name="Tipo de Documento")
-    documento=models.PositiveIntegerField(verbose_name="Documento", unique=True)
+    documento = models.CharField(max_length=20, verbose_name="Documento", unique=True)
 
     def clean(self):
         self.primer_nombre= self.primer_nombre.title()
